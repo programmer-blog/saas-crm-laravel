@@ -227,10 +227,18 @@ Business logic
 Repository / Eloquent:
 Data access
 
+---
 
 ## How do you structure authentication in Laravel?
 
 I separate concerns by keeping controllers thin and placing business logic in a service layer. Authentication logic like hashing and validation is handled in the service, while Eloquent manages persistence. Sensitive fields like passwords are hidden using model properties.
+
+---
+
+## Token-based authentication using Laravel Sanctum
+
+I implemented token-based authentication using Laravel Sanctum. Users receive API tokens upon login, which are used to access protected routes. I structured the logic using a service layer and applied validation to ensure secure and clean input handling.
+
 ---
 
 ## Summary
