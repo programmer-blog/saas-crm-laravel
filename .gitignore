@@ -1,0 +1,52 @@
+# Composer dependencies
+/vendor/
+/composer.lock
+
+# If you prefer to commit composer.lock, comment the line above
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# PHPStorm / VSCode / IDE files
+/.idea/
+/.vscode/
+/*.sublime-project
+/*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Cache / temp files
+/cache/
+/tmp/
+/storage/*.key
+
+# PHPUnit
+/phpunit.xml
+/phpunit.xml.dist
+/.phpunit.result.cache
+
+# Coverage reports
+/coverage/
+
+# Build / artifacts
+/build/
+/dist/
+
+# Node (if used alongside)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Docker (optional)
+docker-compose.override.yml
+
+# Misc
+*.swp
+*.bak
