@@ -227,6 +227,10 @@ Business logic
 Repository / Eloquent:
 Data access
 
+
+## How do you structure authentication in Laravel?
+
+I separate concerns by keeping controllers thin and placing business logic in a service layer. Authentication logic like hashing and validation is handled in the service, while Eloquent manages persistence. Sensitive fields like passwords are hidden using model properties.
 ---
 
 ## Summary
