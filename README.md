@@ -232,8 +232,3 @@ Data access
 ## Summary
 
 "I structure Laravel applications using a layered architecture where controllers handle HTTP requests, services contain business logic, and Eloquent or repositories manage data access. I use dependency injection via the service container to keep the system loosely coupled and maintainable."
-
-php-laravel-backend-mastery
-
-Hands-on learning journey to master modern PHP (8.x) and Laravel.
-Covers clean architecture, repository pattern, service layer, DI, and building production-ready backend systems.
