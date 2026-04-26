@@ -240,7 +240,9 @@ I separate concerns by keeping controllers thin and placing business logic in a 
 I implemented token-based authentication using Laravel Sanctum. Users receive API tokens upon login, which are used to access protected routes. I structured the logic using a service layer and applied validation to ensure secure and clean input handling.
 
 ---
+Implemented a customer module scoped by organization_id to ensure multi-tenant data isolation. Business logic is handled in a service layer and controllers remain thin.
+---
 
-## Summary
+    ## Summary
 
 "I structure Laravel applications using a layered architecture where controllers handle HTTP requests, services contain business logic, and Eloquent or repositories manage data access. I use dependency injection via the service container to keep the system loosely coupled and maintainable."
