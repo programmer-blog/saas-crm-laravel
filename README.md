@@ -129,10 +129,10 @@ php artisan serve
 POST /api/register
 
 {
-"name": "Max",
-"email": "[max@test.com](mailto:max@test.com)",
+"name": "test",
+"email": "[test@test.com](mailto:test@test.com)",
 "password": "123456",
-"organization_name": "Max Corp"
+"organization_name": "Test Corp"
 }
 
 ---
