@@ -18,6 +18,7 @@ class AuthController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required',
+            'role' => 'required|in:admin,user',
             'organization_name' => 'required'
         ]);
 

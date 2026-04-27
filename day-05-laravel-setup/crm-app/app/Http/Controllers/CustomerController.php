@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\CustomerService;
+use App\Http\Requests\StoreCustomerRequest;
 
 class CustomerController extends Controller
 {

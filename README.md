@@ -1,10 +1,188 @@
-## Progress
+## SaaS CRM Backend (Laravel)
 
-- Day 1: PHP OOP, SOLID, Repository Pattern
-- Day 2: Composer, PSR-4, Project Structure
-- Day 3: Service Container & DI
-- Day 4: Request Lifecycle, Routing, Middleware
-- Day 5: Laravel Setup (Real Framework)
+## Overview
+
+This project is a multi-tenant CRM backend built using Laravel.
+It demonstrates production-level backend architecture including authentication, authorization, and scalable API design.
+
+---
+
+## Features
+
+* User Authentication (Token-based using Laravel Sanctum)
+* Multi-tenant architecture (Organizations)
+* Customer Management (CRUD)
+* Search, filtering, and pagination
+* Role-based access control (admin/user)
+* Clean architecture (Controller → Service → Model)
+* API Resources for structured responses
+* Form Requests for validation
+
+---
+
+## Tech Stack
+
+* PHP 8+
+* Laravel
+* MySQL
+* Laravel Sanctum (API Authentication)
+
+---
+
+## Architecture
+
+Route
+→ Controller (handles HTTP)
+→ Form Request (validation)
+→ Service (business logic)
+→ Model (database)
+→ API Resource (response)
+
+---
+
+## Authentication (Sanctum)
+
+Laravel Sanctum is used for token-based authentication.
+
+Flow:
+
+1. User logs in
+2. Server generates API token
+3. Client sends token in headers:
+   Authorization: Bearer {token}
+4. Protected routes use `auth:sanctum` middleware
+
+---
+
+## Multi-Tenancy
+
+* Each user belongs to an organization
+* All data is scoped using `organization_id`
+* Ensures data isolation between tenants
+
+---
+
+## API Endpoints
+
+### Auth
+
+POST /api/register
+POST /api/login
+POST /api/logout
+GET /api/me
+
+---
+
+### Customers
+
+GET /api/customers
+POST /api/customers
+PUT /api/customers/{id}
+DELETE /api/customers/{id}
+
+---
+
+## Local Setup
+
+### 1. Clone repo
+
+git clone <your-repo-url>
+cd project
+
+---
+
+### 2. Install dependencies
+
+composer install
+
+---
+
+### 3. Setup environment
+
+cp .env.example .env
+php artisan key:generate
+
+---
+
+### 4. Configure database
+
+Update `.env` with DB credentials
+
+---
+
+### 5. Run migrations
+
+php artisan migrate
+
+---
+
+### 6. Start server
+
+php artisan serve
+
+---
+
+## Testing (Postman)
+
+### Register
+
+POST /api/register
+
+{
+"name": "Max",
+"email": "[max@test.com](mailto:max@test.com)",
+"password": "123456",
+"organization_name": "Max Corp"
+}
+
+---
+
+### Login
+
+POST /api/login
+
+Response returns token
+
+---
+
+### Use token
+
+Add header:
+
+Authorization: Bearer {your_token}
+
+---
+
+### Test protected route
+
+GET /api/customers
+
+---
+
+## Notes
+
+* Passwords are hashed using Laravel Hash
+* Sensitive fields are hidden from API responses
+* Validation handled via Form Requests
+* Business logic separated using Service layer
+
+---
+
+## Future Improvements
+
+* Role & permission system (advanced)
+* Invitations / team management
+* Dashboard analytics
+* Deployment with Docker
+* CI/CD pipeline
+  
+---
+
+- PHP OOP, SOLID, Repository Pattern
+- Composer, PSR-4, Project Structure
+- Service Container & DI
+- Request Lifecycle, Routing, Middleware
+- Laravel based saas crm
 
 # Laravel Core Concepts Reference
 

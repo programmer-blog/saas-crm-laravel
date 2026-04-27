@@ -1,12 +1,15 @@
 <?php 
+namespace App\Services;
 
+use App\Models\Customer;
 use Illuminate\Support\Facades\Log;
+
 
 class CustomerService
 {
     public function create(array $data, $user)
     {
-        return Customer::create([
+        $customer = Customer::create([
             'name' => $data['name'],
             'email' => $data['email'] ?? null,
             'phone' => $data['phone'] ?? null,
@@ -14,6 +17,12 @@ class CustomerService
         ]);
 
         Log::info('Customer created', ['user_id' => $user->id]);
+        
+        return response()->json([
+            'status' => 'success',
+            'data' => $customer
+        ]);
+
     }
 
     public function update($id, array $data, $user)
@@ -53,7 +62,7 @@ class CustomerService
 
         return response()->json([
             'status' => 'success',
-            'data' => $$query->paginate(10)
+            'data' => $query->paginate(10)
         ]);
     }
 }
