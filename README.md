@@ -241,6 +241,11 @@ I implemented token-based authentication using Laravel Sanctum. Users receive AP
 
 ---
 Implemented a customer module scoped by organization_id to ensure multi-tenant data isolation. Business logic is handled in a service layer and controllers remain thin.
+
+---
+
+Built a multi-tenant CRM system with full CRUD operations, pagination, and filtering. Ensured data isolation using organization scoping and used API Resources for clean responses. Also implemented basic role-based access control.
+
 ---
 
     ## Summary

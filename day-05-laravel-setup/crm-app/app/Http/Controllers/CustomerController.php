@@ -21,8 +21,29 @@ class CustomerController extends Controller
         return $this->customerService->create($data, $request->user());
     }
 
-    public function index(Request $request)
+  public function index(Request $request)
     {
-        return $this->customerService->list($request->user());
+        return $this->customerService->list(
+            $request->user(),
+            $request->all()
+        );
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->validate([
+            'name' => 'sometimes|required',
+            'email' => 'nullable|email',
+            'phone' => 'nullable'
+        ]);
+
+        return $this->customerService->update($id, $data, $request->user());
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        $this->customerService->delete($id, $request->user());
+
+        return response()->json(['message' => 'Deleted']);
     }
 }
