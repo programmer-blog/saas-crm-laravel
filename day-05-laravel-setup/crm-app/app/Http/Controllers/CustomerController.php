@@ -10,15 +10,12 @@ class CustomerController extends Controller
         private CustomerService $customerService
     ) {}
 
-    public function store(Request $request)
+    public function store(StoreCustomerRequest $request)
     {
-        $data = $request->validate([
-            'name' => 'required',
-            'email' => 'nullable|email',
-            'phone' => 'nullable'
-        ]);
-
-        return $this->customerService->create($data, $request->user());
+        return $this->customerService->create(
+            $request->validated(),
+            $request->user()
+        );
     }
 
   public function index(Request $request)

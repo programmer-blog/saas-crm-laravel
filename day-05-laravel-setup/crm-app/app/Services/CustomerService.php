@@ -1,5 +1,7 @@
 <?php 
 
+use Illuminate\Support\Facades\Log;
+
 class CustomerService
 {
     public function create(array $data, $user)
@@ -10,6 +12,8 @@ class CustomerService
             'phone' => $data['phone'] ?? null,
             'organization_id' => $user->organization_id
         ]);
+
+        Log::info('Customer created', ['user_id' => $user->id]);
     }
 
     public function update($id, array $data, $user)
@@ -20,7 +24,10 @@ class CustomerService
 
         $customer->update($data);
 
-        return $customer;
+        return response()->json([
+            'status' => 'success',
+            'data' => $customer
+        ]);
     }
 
     public function delete($id, $user)
@@ -44,6 +51,9 @@ class CustomerService
             $query->where('name', 'like', '%' . $filters['search'] . '%');
         }
 
-        return $query->paginate(10);
+        return response()->json([
+            'status' => 'success',
+            'data' => $$query->paginate(10)
+        ]);
     }
 }

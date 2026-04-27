@@ -248,6 +248,10 @@ Built a multi-tenant CRM system with full CRUD operations, pagination, and filte
 
 ---
 
-    ## Summary
+Follow clean architecture in Laravel using Form Requests for validation, services for business logic, and Eloquent for data access. I also implement proper error handling, logging, and consistent API responses for production readiness.
+
+---
+
+## Summary
 
 "I structure Laravel applications using a layered architecture where controllers handle HTTP requests, services contain business logic, and Eloquent or repositories manage data access. I use dependency injection via the service container to keep the system loosely coupled and maintainable."
